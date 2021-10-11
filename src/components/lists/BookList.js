@@ -8,30 +8,31 @@ class bookList extends Component {
         console.log("bookList Constructor");
     }
 
-    UNSAFE_componentWillMount(){
-        console.log("bookList componentWillMount");
-    }
+    
     componentDidMount(){
         console.log("bookList componentDidMount");
     }
 
-    UNSAFE_componentWillReceiveProps(nextProps){
-        console.log("U bookList componentWillReceiveProps", nextProps);
-    }
 
     shouldComponentUpdate(nextProps,nextState){
         console.log("U bookList shouldComponentUpdate", nextProps,nextState);
         return true;
 
     }
-    UNSAFE_componentWillUpdate(nextProps,nextState){
-        console.log("U bookList componentWillUpdate", nextProps,nextState);
-
-    }
-
+    
     componentDidUpdate(nextProps,nextState){
         console.log("U bookList componentDidUpdate", nextProps,nextState);
     }
+
+    static getDerivedStateFromProps(nextProps,prevState){
+        console.log("bookList getDerivedStateFromProps",nextProps,prevState);
+        return prevState;
+    }
+
+    getSnapshotBeforeUpdate(){
+        console.log("U bookList getSnapshotBeforeUpdate");
+    }
+
 
     render(){
         console.log("bookList render");
