@@ -14,3 +14,7 @@
   text-decoration: none;
   color: black;
 }
+
+.nav-bar a:hover, a:active, a.active {
+  color: orange;
+}
