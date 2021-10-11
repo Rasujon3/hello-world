@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import BookList from './lists/BookList';
 import bookList from '../assets/books';
+import NewBook from './representational/NewBook';
 
 class MainComponent extends Component {
     constructor(props) {
@@ -38,31 +39,7 @@ class MainComponent extends Component {
         this.setState({ showBooks: !this.state.showBooks });
     }
 
-    
-    componentDidMount(){
-        console.log("MainComponent componentDidMount");
-    }
-
-    shouldComponentUpdate(nextProps,nextState){
-        console.log("U MainCOmponent shouldComponentUpdate",nextProps,nextState);
-        return true;
-    }
-
-
-    componentDidUpdate(nextProps,nextState){
-        console.log("U MainCOmponent componentDidUpdate", nextProps,nextState);
-    }
-
-    static getDerivedStateFromProps(nextProps,prevState){
-        console.log("mainComponent getDerivedStateFromProps",nextProps,prevState);
-        return prevState;
-    }
-    getSnapshotBeforeUpdate(){
-        console.log("U mainComponent getSnapshotBeforeUpdate");
-    }
-
     render() {
-        console.log("MainComponent render");
         const style = {
             border: "1px solidd red",
             borderRadius: "5px",
@@ -86,9 +63,16 @@ class MainComponent extends Component {
 
         return (
             <div className="App">
+                <div className="nav-bar">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/new">New Book</a></li>
+                    </ul>
+                </div>
                 <h1 style={style}>Book List</h1>
                 <button onClick={this.toggleBooks}>Toggle Books</button>
                 {books}
+                <NewBook/>
 
             </div>
         );
