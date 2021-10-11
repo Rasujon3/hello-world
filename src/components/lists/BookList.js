@@ -21,7 +21,7 @@ class bookList extends Component {
 
     shouldComponentUpdate(nextProps,nextState){
         console.log("U bookList shouldComponentUpdate", nextProps,nextState);
-        return false;
+        return true;
 
     }
     UNSAFE_componentWillUpdate(nextProps,nextState){
@@ -31,7 +31,6 @@ class bookList extends Component {
 
     componentDidUpdate(nextProps,nextState){
         console.log("U bookList componentDidUpdate", nextProps,nextState);
-
     }
 
     render(){
