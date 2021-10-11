@@ -1,7 +1,10 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 import '../../stylesheets/Book.css';
 
+
 const Book = (props) => {
+    console.log(props);
     return (
         <div className="Book">
             <h3 onClick={props.delete}>Book : {props.bookName}</h3>
@@ -11,4 +14,4 @@ const Book = (props) => {
     );
 }
 
-export default Book;
+export default withRouter(Book);
