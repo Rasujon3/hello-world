@@ -12,9 +12,8 @@ class bookList extends Component {
                 <Book
                     bookName={book.bookName}
                     writer={book.writer}
-                    delete={() => this.props.deleteBookState(index)}
                     key={book.id}
-                    inputName={(event) => this.props.changeWithInputState(event, index)}
+                    selectedBookHandler={() => this.props.selectedBookHandler(book.id)}
                 />
             );
         })
