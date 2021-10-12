@@ -15,9 +15,9 @@ class MainComponent extends Component {
         }
     }
 
-    selectedBookHandler = bookId =>{
-        const book = this.state.books.filter(book => 
-            book.id === bookId )[0];
+    selectedBookHandler = bookId => {
+        const book = this.state.books.filter(book =>
+            book.id === bookId)[0];
         this.setState({
             selectedBook: book
         })
@@ -25,10 +25,10 @@ class MainComponent extends Component {
 
     render() {
 
-          const  books = <BookList 
-                books={this.state.books}
-                selectedBookHandler={this.selectedBookHandler}
-            />
+        const books = <BookList
+            books={this.state.books}
+            selectedBookHandler={this.selectedBookHandler}
+        />
 
         return (
             <div className="App">
@@ -38,10 +38,11 @@ class MainComponent extends Component {
                         <li><NavLink to="/new-book">New Book</NavLink></li>
                     </ul>
                 </nav>
-               
-                <Route path="/" exact render={()=> books} />
-                <Route path="/new-book" exact component= { NewBook } />
-                <BookDetail book={this.state.selectedBook} />
+
+                <Route path="/" exact render={() => books} />
+                <Route path="/new-book" exact component={NewBook} />
+                <Route path="/:id" exact render={() => <BookDetail book={this.state.selectedBook} />} />
+
 
             </div>
         );
