@@ -1,28 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 
 class NewBook extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            bookName: "",
-            writer: "",
-            description: "",
-        }
-        this.handleInputChange = this.handleInputChange.bind(this);
+        this.bookName = createRef();
+        this.writer = createRef();
+        this.description = createRef();
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleSubmit = event => {
-        console.log(this.state);
+        console.log(this.bookName.current.value);
+        console.log(this.writer.current.value);
+        console.log(this.description.current.value);
         event.preventDefault();
-    }
-
-    handleInputChange = event => {
-        const name = event.target.name;
-        const value = event.target.value;
-        this.setState({
-            [name]: value
-        })
     }
 
     render() {
@@ -33,18 +24,15 @@ class NewBook extends Component {
 
                     <label>Book Name: </label>
                     <br />
-                    <input onChange={this.handleInputChange}
-                        value={this.state.bookName} name="bookName" type="text" />
+                    <input name="bookName" type="text" ref={this.bookName} />
                     <br />
                     <label>Writer: </label>
                     <br />
-                    <input onChange={this.handleInputChange}
-                        value={this.state.writer} name="writer" type="text" />
+                    <input name="writer" type="text" ref={this.writer} />
                     <br />
                     <label>Description: </label>
                     <br />
-                    <textarea onChange={this.handleInputChange}
-                        value={this.state.description} name="description" />
+                    <textarea name="description" ref={this.description} />
                     <br />
                     <input value="submit" type="submit" />
 
